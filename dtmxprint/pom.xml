@@ -1,0 +1,187 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>ru.velkomfood.datamax.print</groupId>
+  <artifactId>dtmxprint</artifactId>
+  <packaging>jar</packaging>
+  <version>1.1</version>
+
+  <name>Access Control System</name>
+  <url>http://maven.apache.org</url>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.1.RELEASE</version>
+  </parent>
+
+  <properties>
+    <maven.compiler.version>3.6.0</maven.compiler.version>
+    <maven.jar.version>3.0.2</maven.jar.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <customer.classpath.prefix>/home/dpetrov/.m2/repository</customer.classpath.prefix>
+    <lib.dir>/usr/sap/JCo</lib.dir>
+    <datamax.dir>/usr/sap/datamax</datamax.dir>
+  </properties>
+
+  <!-- Dependency section -->
+
+  <dependencies>
+
+     <!-- Springframework dependencies -->
+    <!-- Spring boot web starter without Tomcat server -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Undertow spring boot starter -->
+     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <!-- Templater -->
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.boot</groupId>-->
+      <!--<artifactId>spring-boot-starter-freemarker</artifactId>-->
+    <!--</dependency>-->
+
+    <!-- Web socket API and webjars API -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>webjars-locator</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>sockjs-client</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>stomp-websocket</artifactId>
+      <version>2.3.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>3.3.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+    <!--<dependency>-->
+      <!--<groupId>com.itextpdf</groupId>-->
+      <!--<artifactId>itextpdf</artifactId>-->
+      <!--<version>5.5.10</version>-->
+    <!--</dependency>-->
+
+    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-barcode -->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.camel</groupId>-->
+      <!--<artifactId>camel-barcode</artifactId>-->
+      <!--<version>2.18.0</version>-->
+    <!--</dependency>-->
+
+    <!-- SQLite JDBC -->
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+    </dependency>
+    
+    <!-- SAP Java Connector (from a local file dependency) -->
+    <dependency>
+      <groupId>sapjco3</groupId>
+      <artifactId>sapjco3</artifactId>
+      <scope>system</scope>
+      <version>3.0</version>
+      <systemPath>${lib.dir}/sapjco3.jar</systemPath>
+    </dependency>
+
+    <!-- DataMax API -->
+    <dependency>
+      <groupId>do_javasdk</groupId>
+      <artifactId>do_javasdk</artifactId>
+      <scope>system</scope>
+      <version>2.1.5.1</version>
+      <systemPath>${datamax.dir}/do_javasdk.jar</systemPath>
+    </dependency>
+
+  </dependencies>
+
+
+  <!-- Additional repositories -->
+<repositories>
+
+  <repository>
+    <id>spring-releases</id>
+    <url>https://repo.spring.io/libs-release</url>
+  </repository>
+
+</repositories>
+
+  <pluginRepositories>
+    <!-- Spring plugin repository -->
+    <pluginRepository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
+  </pluginRepositories>
+  
+   <!-- Build options -->
+
+  <build>
+
+    <plugins>
+
+     <!-- Maven plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.version}</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Class-Path>${lib.dir}/sapjco3.jar ${datamax.dir}/do_javasdk.jar</Class-Path>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <!-- Spring Uber-jar file -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      
+    </plugins>
+
+  </build>
+
+</project>
