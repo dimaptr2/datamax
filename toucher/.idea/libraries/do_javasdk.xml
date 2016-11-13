@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="do_javasdk">
+    <CLASSES>
+      <root url="jar:///usr/sap/datamax/do_javasdk.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///usr/sap/datamax/do_javasdk.jar!/doc" />
+    </JAVADOC>
+    <LIBRARY_FILE />
+    <SOURCES>
+      <root url="jar:///usr/sap/datamax/do_javasdk.jar!/" />
+    </SOURCES>
+  </library>
+</component>

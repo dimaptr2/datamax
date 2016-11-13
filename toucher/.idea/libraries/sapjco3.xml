@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="sapjco3">
+    <CLASSES>
+      <root url="jar:///usr/sap/JCo/sapjco3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <LIBRARY_FILE />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sqlite-jdbc-3.8.11.2">
+    <CLASSES>
+      <root url="jar:///usr/sap/sqlite/sqlite-jdbc-3.8.11.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <LIBRARY_FILE />
+    <SOURCES>
+      <root url="jar:///usr/sap/sqlite/sqlite-jdbc-3.8.11.2.jar!/" />
+    </SOURCES>
+  </library>
+</component>

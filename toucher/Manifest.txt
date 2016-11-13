@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: /usr/sap/sqlite/sqlite-jdbc-3.8.11.2.jar /usr/sap/datamax/do_javasdk.jar /usr/sap/JCo/sapjco3.jar
+JavaFX-Version: 8.0
+Created-By: org.sopatka
+Main-Class: ru.velkomfood.datamax.print.Launcher
+
+
